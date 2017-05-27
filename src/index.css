@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  font-size: 16px;
+}
+
+.background{
+  background-color: #f5f8fa;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.Content{
+  margin-top: 2em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.Layout{
+  background-color: #f5f8fa;
+  min-height: 100vh;
+}
+
+.test{
+  border: 1px solid red;
+  box-sizing: border-box;
+}
