@@ -19,13 +19,13 @@ html {
   font-family: "Icons16";
   font-style: normal;
   font-weight: normal;
-  src: url("../resources/icons/icons-16.eot?#iefix") format("embedded-opentype"), url("../resources/icons/icons-16.woff") format("woff"), url("../resources/icons/icons-16.ttf") format("truetype"); }
+  src: url("../icons/icons-16.eot?#iefix") format("embedded-opentype"), url("../icons/icons-16.woff") format("woff"), url("../icons/icons-16.ttf") format("truetype"); }
 
 @font-face {
   font-family: "Icons20";
   font-style: normal;
   font-weight: normal;
-  src: url("../resources/icons/icons-20.eot?#iefix") format("embedded-opentype"), url("../resources/icons/icons-20.woff") format("woff"), url("../resources/icons/icons-20.ttf") format("truetype"); }
+  src: url("../icons/icons-20.eot?#iefix") format("embedded-opentype"), url("../icons/icons-20.woff") format("woff"), url("../icons/icons-20.ttf") format("truetype"); }
 
 hr {
   margin: 20px 0;
@@ -1642,8 +1642,8 @@ span.pt-icon {
   min-width: 30px;
   min-height: 30px;
   line-height: 30px;
-  
-  
+
+
    }
   .pt-button:disabled, .pt-button.pt-disabled {
     cursor: not-allowed; }
@@ -2263,7 +2263,7 @@ a.pt-button {
 .pt-button-group {
   display: -webkit-inline-flex;
   display: inline-flex;
-  
+
    }
   .pt-button-group .pt-button {
     -webkit-flex: 0 0 auto;
@@ -3625,7 +3625,7 @@ a.pt-button {
   display: flex;
   -webkit-align-items: flex-start;
           align-items: flex-start;
-  
+
    }
   .pt-control-group > * {
     -webkit-flex: 0 0 auto;
@@ -3732,9 +3732,9 @@ a.pt-button {
   padding-left: 26px;
   text-transform: none;
   line-height: 16px;
-  
-  
-  
+
+
+
    }
   .pt-control.pt-disabled {
     cursor: not-allowed;

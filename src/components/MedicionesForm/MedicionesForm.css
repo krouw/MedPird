@@ -1,0 +1,21 @@
+.MedicionesForm {
+  margin-bottom: 32px;
+}
+
+.MedicionesForm-Time{
+  margin: 24px 0;
+}
+
+.MedicionesForm-Fecha{
+  margin-top: 1em;
+}
+
+.MedicionesForm-Idicador{
+  margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .MedicionesForm-Fecha{
+    margin-top: 0;
+  }
+}

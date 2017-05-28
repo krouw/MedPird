@@ -1,0 +1,12 @@
+.Header{
+  width: 100%;
+  position: relative;
+  height: 50px;
+  padding: 0 16px;
+}
+
+.Header .Header-Container{
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(16, 22, 26, 0.15);
+}
