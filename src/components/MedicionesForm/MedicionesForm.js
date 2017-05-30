@@ -52,19 +52,19 @@ class MedicionesForm extends Component{
       <form>
         <Row className="MedicionesForm" around="xs">
             <Col xs={12} sm={3} >
+              <Switch checked={true} label="15 - Medición" onChange={() => {}} />
               <Switch checked={true} label="16 - Medición" onChange={() => {}} />
               <Switch checked={true} label="17 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="18 - Medición" onChange={() => {}} />
             </Col>
             <Col xs={12} sm={3} >
+              <Switch checked={true} label="18 - Medición" onChange={() => {}} />
               <Switch checked={true} label="19 - Medición" onChange={() => {}} />
               <Switch checked={true} label="20 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="21 - Medición" onChange={() => {}} />
             </Col>
             <Col xs={12} sm={3} >
+              <Switch checked={true} label="21 - Medición" onChange={() => {}} />
+              <Switch checked={true} label="22 - Medición" onChange={() => {}} />
               <Switch checked={true} label="23 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="24 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="25 - Medición" onChange={() => {}} />
 
             </Col>
             <Col className="MedicionesForm-Time" xs={12}>
