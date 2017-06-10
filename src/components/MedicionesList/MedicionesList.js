@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDataGrid from 'react-data-grid'
-import moment from 'moment'
 import { Row,Col } from 'react-flexbox-grid';
 import { Spinner, Classes } from '@blueprintjs/core';
 
@@ -8,6 +7,7 @@ const columns = [
 {
   key: 'id',
   name: 'ID',
+  width: 64,
 },
 {
   key: 'Fecha',
@@ -16,7 +16,7 @@ const columns = [
 },
 {
   key: 'Hora',
-  name: 'Hora',
+  name: 'Hora (UTC)',
   sortable : true,
 },
 {
@@ -40,15 +40,7 @@ export default class MedicionesList extends Component {
   }
 
   rowGetter(rowIdx){
-    const row = this.state.rows[rowIdx]
-    const aux ={
-      id: row.HistorianID,
-      Fecha:  moment(row.Time).format('DD/MM/YYYY'),
-      Hora:  moment(row.Time).format('HH:mm:ss:SSS'),
-      Valor: row.Value,
-      Calidad: row.Quality
-    }
-    return aux;
+    return this.state.rows[rowIdx]
   }
 
   componentWillReceiveProps(nextProps){
@@ -64,7 +56,7 @@ export default class MedicionesList extends Component {
       }
     }
     let rows = sortDirection === 'NONE' ? this.props.mediciones.slice(0) : this.state.rows.sort(comparer);
-    this.setState({rows : rows})
+    this.setState({ rows: rows })
   }
 
   renderContent(){
@@ -78,8 +70,7 @@ export default class MedicionesList extends Component {
       columns={columns}
       rowGetter={data => this.rowGetter(data)}
       rowsCount={this.state.rows.length}
-      minHeight={450}
-      onRowUpdated={data => this.handleRowUpdated(data)}
+      style={{margin:16}}
       isScrolling={false}
       defaultPageSize={10}
       showCellBorders= {true}
@@ -97,7 +88,6 @@ export default class MedicionesList extends Component {
   }
 
   render() {
-    console.log(this.state.rows);
     return (
       <Row center='xs'>
         <Col xs={12}>

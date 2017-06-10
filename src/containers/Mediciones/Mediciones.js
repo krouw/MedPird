@@ -5,6 +5,7 @@ import './Mediciones.css'
 import MedicionesForm from '../../components/MedicionesForm/MedicionesForm'
 import MedicionesList from '../../components/MedicionesList/MedicionesList'
 import { data } from './data.js'
+import moment from 'moment'
 
 class Mediciones extends Component {
   constructor(){
@@ -20,7 +21,15 @@ class Mediciones extends Component {
     axios.get(`http://localhost:3000`)
       .then((value) => {
         this.setState({isFetching: false})
-        const rows = data.TimeSeriesDataPoints
+        const rows = data.TimeSeriesDataPoints.map( row => {
+          return {
+            id: row.HistorianID,
+            Fecha:  moment(row.Time).format('DD/MM/YYYY'),
+            Hora:  moment(row.Time).format('HH:mm:ss:SSS'),
+            Valor: row.Value,
+            Calidad: row.Quality
+          }
+        })
         this.setState({measurement: rows})
       })
       .catch((err) => {
