@@ -4,7 +4,6 @@ import {
   Popover,
   PopoverInteractionKind,
   Position,
-  Switch,
   Button } from '@blueprintjs/core';
 import { DateTimePicker, TimePickerPrecision} from "@blueprintjs/datetime";
 import moment from 'moment';
@@ -15,15 +14,34 @@ class MedicionesForm extends Component{
   constructor(){
     super()
     this.state = {
-      dateRange: [null, null]
+      dateRange: [null, null],
+      error: ''
     }
   }
 
   handleDateRange(dateRange, index){
-    console.log(dateRange);
     const newDateRange = [this.state.dateRange[0],this.state.dateRange[1]]
     newDateRange[index] = dateRange;
     this.setState({dateRange: newDateRange});
+    if(!moment(newDateRange[0]).isBefore(moment(newDateRange[1]))){
+      this.setState({error: 'La Fecha inicial debe ser menor que la final.'})
+    }
+    else{
+      this.setState({error: ''})
+    }
+  }
+
+  fetchData(){
+
+    if(this.state.dateRange[0] === null || this.state.dateRange[1] === null){
+      this.setState({error: 'Debes seleccionar un rango de fechas'})
+    }
+    else{
+      if(isEmpty(this.state.error)){
+        this.setState({error: ''})
+        this.props.fetchData(this.state.dateRange)
+      }
+    }
   }
 
   render(){
@@ -49,23 +67,9 @@ class MedicionesForm extends Component{
        }
      }
     return (
-      <form>
         <Row className="MedicionesForm" around="xs">
-            <Col xs={12} sm={3} >
-              <Switch checked={true} label="15 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="16 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="17 - Medición" onChange={() => {}} />
-            </Col>
-            <Col xs={12} sm={3} >
-              <Switch checked={true} label="18 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="19 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="20 - Medición" onChange={() => {}} />
-            </Col>
-            <Col xs={12} sm={3} >
-              <Switch checked={true} label="21 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="22 - Medición" onChange={() => {}} />
-              <Switch checked={true} label="23 - Medición" onChange={() => {}} />
-
+            <Col xs={12}>
+              <p>Consulta medicion df/dx</p>
             </Col>
             <Col className="MedicionesForm-Time" xs={12}>
               <h6>Rango de Tiempo</h6>
@@ -97,12 +101,19 @@ class MedicionesForm extends Component{
                     </div>
                   </Popover>
                 </Col>
+                <Col xs={5}>
+                  <Button
+                    onClick={() => this.fetchData()}
+                    className="MedicionesForm-Button pt-intent-primary"
+                    text={'Enviar'}/>
+                </Col>
+                { !isEmpty(this.state.error) ?  <Col xs={12}>
+                        <p className="MedicionesForm-Error">{this.state.error}</p>
+                      </Col> : null}
               </Row>
             </Col>
 
         </Row>
-
-      </form>
     );
   }
 }
