@@ -17,7 +17,7 @@ class Mediciones extends Component {
 
   fetchData(dateRange){
     this.setState({isFetching: true})
-    axios.get(`http://localhost:6152/historian/timeseriesdata/read/historic/16/${dateRange[0]}/${dateRange[1]}/json`)
+    axios.get(`http://localhost:6152/historian/timeseriesdata/read/historic/16/${moment(dateRange[0]).format()}/${moment(dateRange[0]).format()}/json`)
       .then((value) => {
         this.setState({isFetching: false})
         const rows = value.TimeSeriesDataPoints.map( row => {
