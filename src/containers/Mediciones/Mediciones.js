@@ -4,7 +4,6 @@ import axios from 'axios'
 import './Mediciones.css'
 import MedicionesForm from '../../components/MedicionesForm/MedicionesForm'
 import MedicionesList from '../../components/MedicionesList/MedicionesList'
-import { data } from './data.js'
 import moment from 'moment'
 
 class Mediciones extends Component {
@@ -18,10 +17,10 @@ class Mediciones extends Component {
 
   fetchData(dateRange){
     this.setState({isFetching: true})
-    axios.get(`http://localhost:3000`)
+    axios.get(`http://localhost:6152/historian/timeseriesdata/read/historic/16/${dateRange[0]}/${dateRange[1]}/json`)
       .then((value) => {
         this.setState({isFetching: false})
-        const rows = data.TimeSeriesDataPoints.map( row => {
+        const rows = value.TimeSeriesDataPoints.map( row => {
           return {
             id: row.HistorianID,
             Fecha:  moment(row.Time).format('DD/MM/YYYY'),
