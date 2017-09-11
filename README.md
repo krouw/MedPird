@@ -1,6 +1,6 @@
 # MedPird
 
-## Cliente para mediciones openPDC
+## Cliente para consumo openPDC RESTFul
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
